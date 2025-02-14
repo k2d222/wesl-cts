@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <script type="module">
+    const req = await fetch('code.json')
+    const tests = await req.json()
+    console.log('tests:', tests)
+    const adapter = await navigator.gpu.requestAdapter()
+    console.log('adapter:', adapter)
+    const device = await adapter.requestDevice()
+    console.log('device:', device)
+
+    const errs = []
+
+    for (const test of tests) {
+      device.pushErrorScope('validation')
+      const module = device.createShaderModule({ code: test.code })
+      // console.log('module:', module)
+      const error = await device.popErrorScope()
+      // console.log('error:', error)
+
+      if (error === null) {
+        errs.push("OK")
+      } else {
+        errs.push(error.message)
+      }
+    }
+
+    console.log('errors:', errs)
+    document.body.innerText = JSON.stringify(errs)
+  </script>
+</body>
+</html>
