@@ -27,4 +27,4 @@ clear && node ./tools/run_node --colors --gpu-provider (realpath ../wesl-cpu/) '
 # Update wesl-web
 
 get wesl-web from the playground
-wasm-pack build wesl-web --dev --target nodejs --out-dir path/to/wesl-cts/wesl-cpu/wesl-web --no-default-features --features naga,wesl
+wasm-pack build wesl-web --dev --target nodejs --out-dir path/to/wesl-cts/wesl-cpu/wesl-web --no-default-features --features debug

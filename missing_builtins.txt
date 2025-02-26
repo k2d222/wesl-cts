@@ -1,0 +1,25 @@
+asinh
+atanh
+atomics
+determinant
+dot4I8Packed, dot4U8Packed
+dpdx, dpdxCoarse, dpdxFine, dpdy, dpdyCoarse, dpdyFine
+extractBits
+faceForward
+firstLeadingBit
+firstTrailingBit
+fma
+fwidth, fwidthCoarse, fwidthFine
+insertBits
+mix
+modf
+normalize
+pack2x16float, pack2x16snorm, pack2x16unorm, pack4x8snorm, pack4x8unorm, pack4xI8, pack4xI8Clamp, pack4xU8, pack4xU8Clamp
+quadBroadcast, quadSwap
+quantizeToF16
+smoothstep
+storageBarrier
+subgroupAdd, subgroupAll, subgroupAny, subgroupBallot, subgroupBitwise, subgroupBroadcast, subgroupMul
+textureDimensions, textureGather, textureGatherCompare, textureLoad, textureNumLayers, textureNumLevels, textureNumSamples, textureSample, textureSampleClampToEdge, textureSampleBias, textureSampleCompare, textureSampleCompareLevel, textureSampleGrad, textureSampleLevel, textureStore
+unpack2x16float, unpack2x16snorm, unpack2x16unorm, unpack4x8snorm, unpack4x8unorm, unpack4xI8, unpack4xU8
+workgroupBarrier, workgroupUniformLoad
