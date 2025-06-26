@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "Updating wesl-rs..."
+wasm-pack build ~/github/wesl-rs/crates/wesl-web --target deno --out-dir ~/github/wesl-cts/wesl-cpu/wesl-web --no-default-features --features debug
+echo "Running passing tests..."
+cd ~/github/wesl-cts/
+fish run.fish 2>/dev/null | rg '^(running|Passed|Skipped|Failed)'
+echo "Done!"
