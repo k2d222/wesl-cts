@@ -143,7 +143,8 @@ set test $argv[1]
 
 cd cts
 
-set cli deno run --allow-read --allow-env out/common/runtime/cmdline.js
+# set cli deno run --unstable-detect-cjs --allow-read --allow-env out/common/runtime/cmdline.js
+set cli node out-node/common/runtime/cmdline.js
 
 if test $test
     echo running $test
