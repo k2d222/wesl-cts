@@ -3,4 +3,4 @@
 	url = https://github.com/k2d222/wesl-cpu
 [submodule "cts"]
 	path = cts
-	url = https://github.com/gpuweb/cts
+	url = https://github.com/k2d222/cts
