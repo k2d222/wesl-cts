@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Updating cts..."
+cd ~/github/wesl-cts/cts
+npm run standalone
 echo "Updating wesl-rs..."
 wasm-pack build ~/github/wesl-rs/crates/wesl-web --target nodejs --out-dir ~/github/wesl-cts/wesl-cpu/wesl-web --no-default-features --features debug
 echo "Running passing tests..."
