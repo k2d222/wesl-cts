@@ -79,12 +79,12 @@ const runCmd = command({
       const ok = expectFail ? !passed : passed;
 
       if (!ok) {
+        process.stdout.write(output);
         if (expectFail) {
           console.error(`\nUNEXPECTED PASS (expected failure): ${query}\n`);
         } else {
           console.error(`\nFAILED: ${query}\n`);
         }
-        process.stdout.write(output);
         process.exit(1);
       }
     }

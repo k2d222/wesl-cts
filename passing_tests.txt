@@ -1,6 +1,11 @@
+# webgpu:shader,execution,expression,access,array,index:runtime_sized:elementType="i32";indexType="i32"
+# webgpu:shader,execution,expression,access,matrix,index:non_const_index:columns=4;rows=4'
+# webgpu:shader,execution,expression,access,structure,index:buffer_pointer:member_types=["i32","u32","f32","f16","vec3f","vec4i"];inputSource="storage"
+
 webgpu:shader,execution,expression,access,vector,*
 webgpu:shader,execution,expression,binary,af_addition:*
 webgpu:shader,execution,expression,call,user,*
+
 webgpu:shader,execution,expression,call,builtin,abs:*
 webgpu:shader,execution,expression,call,builtin,acos:*
 webgpu:shader,execution,expression,call,builtin,acosh:*
@@ -11,6 +16,10 @@ webgpu:shader,execution,expression,call,builtin,asin:*
 webgpu:shader,execution,expression,call,builtin,asinh:*
 webgpu:shader,execution,expression,call,builtin,atan:*
 webgpu:shader,execution,expression,call,builtin,atan2:*
+
+# webgpu:shader,execution,expression,call,builtin,atanh:*
+# webgpu:shader,execution,expression,call,builtin,atomics,*
+
 webgpu:shader,execution,expression,call,builtin,bitcast:*
 webgpu:shader,execution,expression,call,builtin,ceil:*
 webgpu:shader,execution,expression,call,builtin,clamp:*
@@ -21,13 +30,41 @@ webgpu:shader,execution,expression,call,builtin,countOneBits:*
 webgpu:shader,execution,expression,call,builtin,countTrailingZeros:*
 webgpu:shader,execution,expression,call,builtin,cross:*
 webgpu:shader,execution,expression,call,builtin,degrees:*
+
+# webgpu:shader,execution,expression,call,builtin,determinant:*
+
 webgpu:shader,execution,expression,call,builtin,distance:*
 webgpu:shader,execution,expression,call,builtin,dot:*
+
+# webgpu:shader,execution,expression,call,builtin,dot4I8Packed:*
+# webgpu:shader,execution,expression,call,builtin,dot4U8Packed:*
+# webgpu:shader,execution,expression,call,builtin,dpdx:*
+# webgpu:shader,execution,expression,call,builtin,dpdxCoarse:*
+# webgpu:shader,execution,expression,call,builtin,dpdxFine:*
+# webgpu:shader,execution,expression,call,builtin,dpdy:*
+# webgpu:shader,execution,expression,call,builtin,dpdyCoarse:*
+# webgpu:shader,execution,expression,call,builtin,dpdyFine:*
+
 webgpu:shader,execution,expression,call,builtin,exp:*
 webgpu:shader,execution,expression,call,builtin,exp2:*
+
+# webgpu:shader,execution,expression,call,builtin,extractBits:*
+# webgpu:shader,execution,expression,call,builtin,faceForward:*
+# webgpu:shader,execution,expression,call,builtin,firstLeadingBit:*
+# webgpu:shader,execution,expression,call,builtin,firstTrailingBit:*
+
 webgpu:shader,execution,expression,call,builtin,floor:*
+
+# webgpu:shader,execution,expression,call,builtin,fma:*
+
 webgpu:shader,execution,expression,call,builtin,fract:*
 webgpu:shader,execution,expression,call,builtin,frexp:*
+
+# webgpu:shader,execution,expression,call,builtin,fwidth:*
+# webgpu:shader,execution,expression,call,builtin,fwidthCoarse:*
+# webgpu:shader,execution,expression,call,builtin,fwidthFine:*
+# webgpu:shader,execution,expression,call,builtin,insertBits:*
+
 webgpu:shader,execution,expression,call,builtin,inversesqrt:*
 webgpu:shader,execution,expression,call,builtin,ldexp:*
 webgpu:shader,execution,expression,call,builtin,length:*
@@ -36,7 +73,11 @@ webgpu:shader,execution,expression,call,builtin,log2:*
 webgpu:shader,execution,expression,call,builtin,max:*
 webgpu:shader,execution,expression,call,builtin,min:*
 webgpu:shader,execution,expression,call,builtin,mix:*
+
+# webgpu:shader,execution,expression,call,builtin,modf:*
+
 webgpu:shader,execution,expression,call,builtin,normalize:*
+
 webgpu:shader,execution,expression,call,builtin,pack2x16float:*
 webgpu:shader,execution,expression,call,builtin,pack2x16snorm:*
 webgpu:shader,execution,expression,call,builtin,pack2x16unorm:*
@@ -46,22 +87,65 @@ webgpu:shader,execution,expression,call,builtin,pack4xI8:*
 webgpu:shader,execution,expression,call,builtin,pack4xI8Clamp:*
 webgpu:shader,execution,expression,call,builtin,pack4xU8:*
 webgpu:shader,execution,expression,call,builtin,pack4xU8Clamp:*
+
 webgpu:shader,execution,expression,call,builtin,pow:*
 webgpu:shader,execution,expression,call,builtin,quadBroadcast:*
 webgpu:shader,execution,expression,call,builtin,quadSwap:*
+
+# webgpu:shader,execution,expression,call,builtin,quantizeToF16:*
+
 webgpu:shader,execution,expression,call,builtin,radians:*
+
+# webgpu:shader,execution,expression,call,builtin,reflect:*
+# webgpu:shader,execution,expression,call,builtin,refract:*
+# webgpu:shader,execution,expression,call,builtin,reverseBits:*
+
 webgpu:shader,execution,expression,call,builtin,round:*
 webgpu:shader,execution,expression,call,builtin,saturate:*
 webgpu:shader,execution,expression,call,builtin,select:*
 webgpu:shader,execution,expression,call,builtin,sign:*
 webgpu:shader,execution,expression,call,builtin,sin:*
 webgpu:shader,execution,expression,call,builtin,sinh:*
+
+# webgpu:shader,execution,expression,call,builtin,smoothstep:*
+
 webgpu:shader,execution,expression,call,builtin,sqrt:*
 webgpu:shader,execution,expression,call,builtin,step:*
+
+# webgpu:shader,execution,expression,call,builtin,storageBarrier:*
+# webgpu:shader,execution,expression,call,builtin,subgroupAdd:*
+# webgpu:shader,execution,expression,call,builtin,subgroupAll:*
+# webgpu:shader,execution,expression,call,builtin,subgroupAny:*
+# webgpu:shader,execution,expression,call,builtin,subgroupBallot:*
+# webgpu:shader,execution,expression,call,builtin,subgroupBitwise:*
+# webgpu:shader,execution,expression,call,builtin,subgroupBroadcast:*
+# webgpu:shader,execution,expression,call,builtin,subgroupElect:*
+# webgpu:shader,execution,expression,call,builtin,subgroupMinMax:*
+# webgpu:shader,execution,expression,call,builtin,subgroupMul:*
+# webgpu:shader,execution,expression,call,builtin,subgroupShuffle:*
+
 webgpu:shader,execution,expression,call,builtin,tan:*
 webgpu:shader,execution,expression,call,builtin,tanh:*
+
+# webgpu:shader,execution,expression,call,builtin,textureDimensions:*
+# webgpu:shader,execution,expression,call,builtin,textureGather:*
+# webgpu:shader,execution,expression,call,builtin,textureGatherCompare:*
+# webgpu:shader,execution,expression,call,builtin,textureLoad:*
+# webgpu:shader,execution,expression,call,builtin,textureNumLayers`:*
+# webgpu:shader,execution,expression,call,builtin,textureNumLevels:*
+# webgpu:shader,execution,expression,call,builtin,textureNumSamples:*
+# webgpu:shader,execution,expression,call,builtin,textureSample:*
+# webgpu:shader,execution,expression,call,builtin,textureSampleBaseClampToEdge:*
+# webgpu:shader,execution,expression,call,builtin,textureSampleBias:*
+# webgpu:shader,execution,expression,call,builtin,textureSampleCompareLevel:*
+# webgpu:shader,execution,expression,call,builtin,textureSampleGrad:*
+# webgpu:shader,execution,expression,call,builtin,textureSampleLevel:*
+# webgpu:shader,execution,expression,call,builtin,textureStore:*
+# webgpu:shader,execution,expression,call,builtin,texture_utils:*
+
 webgpu:shader,execution,expression,call,builtin,transpose:*
 webgpu:shader,execution,expression,call,builtin,trunc:*
+
 webgpu:shader,execution,expression,call,builtin,unpack2x16float:*
 webgpu:shader,execution,expression,call,builtin,unpack2x16snorm:*
 webgpu:shader,execution,expression,call,builtin,unpack2x16unorm:*
@@ -69,9 +153,15 @@ webgpu:shader,execution,expression,call,builtin,unpack4x8snorm:*
 webgpu:shader,execution,expression,call,builtin,unpack4x8unorm:*
 webgpu:shader,execution,expression,call,builtin,unpack4xI8:*
 webgpu:shader,execution,expression,call,builtin,unpack4xU8:*
+
+# webgpu:shader,execution,expression,call,builtin,workgroupBarrier:*
+# webgpu:shader,execution,expression,call,builtin,workgroupUniformLoad:*
+
 webgpu:shader,execution,expression,constructor,*
 webgpu:shader,execution,expression,precedence,*
 webgpu:shader,execution,expression,unary,*
+
 webgpu:shader,execution,float_parse:*
 webgpu:shader,execution,flow_control,*
-webgpu:shader,execution,memory_layout,*
+
+# webgpu:shader,execution,memory_layout,*
