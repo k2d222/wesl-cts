@@ -3,12 +3,15 @@
 root=$(dirname "$(realpath "$0")")
 echo "root: $root"
 
-echo "Updating cts..."
-cd $root/cts/
-npm run standalone
 echo "Updating wesl-rs-web..."
 cd $root/../wesl-rs/
 cargo xtask wesl-rs-web
+echo "Updating wesl-cpu..."
+cd $root/wesl-cpu/
+npm install
+echo "Updating cts..."
+cd $root/cts/
+npm run standalone
 echo "Running passing tests..."
 cd $root/
 fish run.fish 2>/dev/null | rg '^(running|Passed|Skipped|Failed)'
