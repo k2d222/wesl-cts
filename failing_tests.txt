@@ -1,7 +1,8 @@
-webgpu:shader,execution,expression,access,array,index:runtime_sized:elementType="i32";indexType="i32"
-webgpu:shader,execution,expression,access,matrix,index:non_const_index:columns=4;rows=4'
-webgpu:shader,execution,expression,access,structure,index:buffer_pointer:member_types=["i32","u32","f32","f16","vec3f","vec4i"];inputSource="storage"
+# webgpu:shader,execution,expression,access,array,*
 
+webgpu:shader,execution,expression,access,matrix,index:non_const_index:columns=4;rows=4
+
+# webgpu:shader,execution,expression,access,structure,*
 # webgpu:shader,execution,expression,access,vector,*
 # webgpu:shader,execution,expression,binary,af_addition:*
 # webgpu:shader,execution,expression,call,user,*
@@ -112,17 +113,19 @@ webgpu:shader,execution,expression,call,builtin,smoothstep:*
 # webgpu:shader,execution,expression,call,builtin,sqrt:*
 # webgpu:shader,execution,expression,call,builtin,step:*
 
-webgpu:shader,execution,expression,call,builtin,storageBarrier:*
-webgpu:shader,execution,expression,call,builtin,subgroupAdd:*
-webgpu:shader,execution,expression,call,builtin,subgroupAll:*
-webgpu:shader,execution,expression,call,builtin,subgroupAny:*
-webgpu:shader,execution,expression,call,builtin,subgroupBallot:*
-webgpu:shader,execution,expression,call,builtin,subgroupBitwise:*
-webgpu:shader,execution,expression,call,builtin,subgroupBroadcast:*
-webgpu:shader,execution,expression,call,builtin,subgroupElect:*
-webgpu:shader,execution,expression,call,builtin,subgroupMinMax:*
-webgpu:shader,execution,expression,call,builtin,subgroupMul:*
-webgpu:shader,execution,expression,call,builtin,subgroupShuffle:*
+# tests skipped below because "test unimplemented"
+# webgpu:shader,execution,expression,call,builtin,storageBarrier:*
+# tests skipped below because "device does not have feature: 'subgroups'"
+# webgpu:shader,execution,expression,call,builtin,subgroupAdd:*
+# webgpu:shader,execution,expression,call,builtin,subgroupAll:*
+# webgpu:shader,execution,expression,call,builtin,subgroupAny:*
+# webgpu:shader,execution,expression,call,builtin,subgroupBallot:*
+# webgpu:shader,execution,expression,call,builtin,subgroupBitwise:*
+# webgpu:shader,execution,expression,call,builtin,subgroupBroadcast:*
+# webgpu:shader,execution,expression,call,builtin,subgroupElect:*
+# webgpu:shader,execution,expression,call,builtin,subgroupMinMax:*
+# webgpu:shader,execution,expression,call,builtin,subgroupMul:*
+# webgpu:shader,execution,expression,call,builtin,subgroupShuffle:*
 
 # webgpu:shader,execution,expression,call,builtin,tan:*
 # webgpu:shader,execution,expression,call,builtin,tanh:*
@@ -154,8 +157,9 @@ webgpu:shader,execution,expression,call,builtin,texture_utils:*
 # webgpu:shader,execution,expression,call,builtin,unpack4xI8:*
 # webgpu:shader,execution,expression,call,builtin,unpack4xU8:*
 
-webgpu:shader,execution,expression,call,builtin,workgroupBarrier:*
-webgpu:shader,execution,expression,call,builtin,workgroupUniformLoad:*
+# tests skipped below because "test unimplemented"
+# webgpu:shader,execution,expression,call,builtin,workgroupBarrier:*
+# webgpu:shader,execution,expression,call,builtin,workgroupUniformLoad:*
 
 # webgpu:shader,execution,expression,constructor,*
 # webgpu:shader,execution,expression,precedence,*

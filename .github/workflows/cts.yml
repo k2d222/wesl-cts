@@ -9,6 +9,9 @@ on:
 jobs:
   cts-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Checkout wesl-cts
         uses: actions/checkout@v4
@@ -55,7 +58,40 @@ jobs:
           node dist/cli.js update cts
 
       - name: Run passing tests
-        run: node dist/cli.js run --tests passing_tests.txt
+        id: passing
+        run: node dist/cli.js run --tests passing_tests.txt 2>&1 | tee passing.log
+        shell: bash
 
       - name: Run failing tests (expected to fail)
-        run: node dist/cli.js run --tests failing_tests.txt --expect-fail
+        id: failing
+        run: node dist/cli.js run --tests failing_tests.txt --expect-fail 2>&1 | tee failing.log
+        shell: bash
+
+      - name: Open issue on failure
+        if: failure() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "The weekly CTS run failed in [this run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})."
+            echo
+            if [ "${{ steps.passing.outcome }}" = "failure" ]; then
+              echo "## Passing tests report"
+              echo
+              echo '```'
+              tail -n 100 passing.log || true
+              echo '```'
+              echo
+            fi
+            if [ "${{ steps.failing.outcome }}" = "failure" ]; then
+              echo "## Failing tests report (expected to fail)"
+              echo
+              echo '```'
+              tail -n 100 failing.log || true
+              echo '```'
+              echo
+            fi
+          } > issue-body.md
+          gh issue create \
+            --title "Weekly CTS run failed ($(date -u +%Y-%m-%d))" \
+            --body-file issue-body.md
