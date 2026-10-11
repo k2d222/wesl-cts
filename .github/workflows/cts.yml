@@ -1,0 +1,61 @@
+name: CTS passing tests
+
+on:
+  schedule:
+    # Every Monday at 06:00 UTC.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  cts-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout wesl-cts
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Checkout wesl-rs
+        uses: actions/checkout@v4
+        with:
+          repository: webgpu-tools/wesl-rs
+          path: wesl-rs
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Install wasm-pack
+        uses: jetli/wasm-pack-action@v0.4.0
+
+      - name: Install CLI dependencies
+        run: npm ci
+
+      - name: Build CLI
+        run: npm run build
+
+      - name: Install wesl-cpu dependencies
+        working-directory: wesl-cpu
+        run: npm install
+
+      - name: Build wesl-rs-web and cts
+        run: |
+          node dist/cli.js update wesl --path wesl-rs/crates/wesl-rs-web
+          node dist/cli.js update cts
+
+      - name: Run passing tests
+        run: node dist/cli.js run --tests passing_tests.txt
+
+      - name: Run failing tests (expected to fail)
+        run: node dist/cli.js run --tests failing_tests.txt --expect-fail
