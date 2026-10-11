@@ -16,22 +16,12 @@ npm link   # optional: exposes the `wesl-cts` command globally
 
 Then use `wesl-cts` (or `node dist/cli.js`):
 
-* `wesl-cts run` — run every test in `passing_tests.txt`, stopping and printing
-  the detail on the first failure. `run` is the default, so plain `wesl-cts`
-  works too.
-* `wesl-cts run <query>` — run a single CTS query instead of the whole file.
-* `wesl-cts run --tests failing_tests.txt` — run a different test list.
-* `wesl-cts run --tests failing_tests.txt --expect-fail` — expect failures
-  (reports ok when a test fails, error when it passes).
 * `wesl-cts update` — rebuild `wesl-rs-web` and `cts`.
-* `wesl-cts update wesl` / `wesl-cts update cts` — rebuild only one of them.
-* `wesl-cts update wesl --path <wesl-rs-web>` — point `wesl-cpu`'s
-  `wesl-rs-web` dependency at a different crate path before rebuilding (updates
-  the `file:` dependency, runs `npm run build` in that crate, then
-  `npm install`).
-
-Tests are listed one query per line in `passing_tests.txt` and
-`failing_tests.txt`. Lines starting with `#` are ignored.
+* `wesl-cts update wesl --path <wesl-rs-web>` — change the path to `wesl-rs-web` crate and rebuild it.
+* `wesl-cts run` — run every test in `passing_tests.txt`, stopping and printing
+  the detail on the first failure.
+* `wesl-cts run <query>` — run a single CTS query instead of the whole file.
+* `wesl-cts run --tests failing_tests.txt --expect-fail` — ensure failing_tests fail.
 
 [CTS]: https://github.com/gpuweb/cts
 [`wesl-rs`]: https://github.com/webgpu-tools/wesl-rs
