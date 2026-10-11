@@ -1,0 +1,19 @@
+{
+  "name": "wesl-cpu",
+  "version": "1.0.0",
+  "description": "testing WESL implementations on the CPU",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mathis Brossier <mathis.brossier@gmail.com>",
+  "license": "LGPL-3.0-only",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@webgpu/types": "^0.1.50"
+  },
+  "dependencies": {
+    "typescript": "^5.8.3",
+    "wesl-rs-web": "file:../../wesl-rs/crates/wesl-rs-web"
+  }
+}
