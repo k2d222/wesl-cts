@@ -52,6 +52,10 @@ jobs:
         working-directory: wesl-cpu
         run: npm install
 
+      - name: Install cts dependencies
+        working-directory: cts
+        run: npm ci
+
       - name: Build wesl-rs-web and cts
         run: |
           node dist/cli.js update wesl --path wesl-rs/crates/wesl-rs-web
