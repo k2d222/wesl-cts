@@ -25,6 +25,10 @@ Then use `wesl-cts` (or `node dist/cli.js`):
   (reports ok when a test fails, error when it passes).
 * `wesl-cts update` — rebuild `wesl-rs-web` and `cts`.
 * `wesl-cts update wesl` / `wesl-cts update cts` — rebuild only one of them.
+* `wesl-cts update wesl --path <wesl-rs-web>` — point `wesl-cpu`'s
+  `wesl-rs-web` dependency at a different crate path before rebuilding (updates
+  the `file:` dependency, runs `npm run build` in that crate, then
+  `npm install`).
 
 Tests are listed one query per line in `passing_tests.txt` and
 `failing_tests.txt`. Lines starting with `#` are ignored.

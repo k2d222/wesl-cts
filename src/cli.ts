@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+
 import { spawnSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   command,
@@ -20,8 +21,8 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 const CTS_DIR = resolve(ROOT, "cts");
 const RUN_DENO = resolve(CTS_DIR, "tools/run_deno");
-const GPU_PROVIDER = resolve(ROOT, "wesl-cpu/index.ts");
-const WESL_RS_DIR = resolve(ROOT, "../../wesl-rs");
+const WESL_CPU_DIR = resolve(ROOT, "wesl-cpu");
+const GPU_PROVIDER = resolve(WESL_CPU_DIR, "index.ts");
 
 function readTests(file: string): string[] {
   const path = resolve(process.cwd(), file);
@@ -106,8 +107,41 @@ function build(cmd: string, args: string[], cwd: string): void {
   }
 }
 
-function updateWesl(): void {
-  build("cargo", ["xtask", "wesl-rs-web", "--release"], WESL_RS_DIR);
+/**
+ * Rebuilds wesl-rs-web and reinstalls it into wesl-cpu.
+ * `cratePath`, when given, is the path to the wesl-rs-web crate; it becomes
+ * wesl-cpu's "wesl-rs-web" dependency. When omitted, the crate is derived from
+ * the current dependency.
+ */
+function updateWesl(cratePathArg?: string): void {
+  const pkgPath = resolve(WESL_CPU_DIR, "package.json");
+  const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
+  let cratePath: string;
+
+  if (cratePathArg !== undefined) {
+    cratePath = resolve(process.cwd(), cratePathArg);
+    if (!existsSync(cratePath)) {
+      console.error(`wesl-rs-web path not found: ${cratePath}`);
+      process.exit(1);
+    }
+    // npm file: deps are resolved relative to the package that declares them.
+    const rel = relative(WESL_CPU_DIR, cratePath);
+    pkg.dependencies["wesl-rs-web"] = `file:${rel}`;
+    writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`);
+    console.log(`set wesl-rs-web dependency to file:${rel}`);
+  } else {
+    const dep: string = pkg.dependencies["wesl-rs-web"] ?? "";
+    if (!dep.startsWith("file:")) {
+      console.error(
+        `wesl-rs-web dependency is not a file: path; pass --path <wesl-rs-web crate>`,
+      );
+      process.exit(1);
+    }
+    cratePath = resolve(WESL_CPU_DIR, dep.slice("file:".length));
+  }
+
+  build("npm", ["run", "build"], cratePath);
+  build("npm", ["install"], WESL_CPU_DIR);
 }
 
 function updateCts(): void {
@@ -123,14 +157,20 @@ const updateCmd = command({
       displayName: "target",
       description: "Only update 'wesl' or 'cts' instead of both.",
     }),
+    path: option({
+      type: optional(string),
+      long: "path",
+      description:
+        "Path to the wesl-rs-web package to use as wesl-cpu's dependency.",
+    }),
   },
-  handler: ({ target }) => {
+  handler: ({ target, path }) => {
     if (target === "wesl") {
-      updateWesl();
+      updateWesl(path);
     } else if (target === "cts") {
       updateCts();
     } else {
-      updateWesl();
+      updateWesl(path);
       updateCts();
     }
   },

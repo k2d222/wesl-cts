@@ -9,7 +9,6 @@
   "author": "Mathis Brossier <mathis.brossier@gmail.com>",
   "license": "LGPL-3.0-only",
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
     "@webgpu/types": "^0.1.50"
   },
   "dependencies": {
