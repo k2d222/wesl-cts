@@ -1,0 +1,3 @@
+webgpu:shader,execution,expression,access,array,index:runtime_sized:elementType="i32";indexType="i32"
+webgpu:shader,execution,expression,access,matrix,index:non_const_index:columns=4;rows=4
+webgpu:shader,execution,expression,access,structure,index:buffer_pointer:member_types=["i32","u32","f32","f16","vec3f","vec4i"];inputSource="storage"

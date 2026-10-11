@@ -1,0 +1,25 @@
+{
+  "name": "wesl-cts",
+  "version": "1.0.0",
+  "description": "Run the WGSL Conformance Test Suite with wesl-rs",
+  "type": "module",
+  "bin": {
+    "wesl-cts": "dist/cli.js"
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc"
+  },
+  "author": "Mathis Brossier <mathis.brossier@gmail.com>",
+  "license": "LGPL-3.0-only",
+  "dependencies": {
+    "cmd-ts": "^0.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.3"
+  }
+}
