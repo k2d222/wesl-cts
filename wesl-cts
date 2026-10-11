@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
+root=$(dirname "$(realpath "$0")")
+echo "root: $root"
+
 echo "Updating cts..."
-cd ~/github/wesl-cts/cts
+cd $root/cts/
 npm run standalone
-echo "Updating wesl-rs..."
-wasm-pack build ~/github/wesl-rs/crates/wesl-web --target nodejs --out-dir ~/github/wesl-cts/wesl-cpu/wesl-web --no-default-features --features debug
+echo "Updating wesl-rs-web..."
+cd $root/../wesl-rs/
+cargo xtask wesl-rs-web
 echo "Running passing tests..."
-cd ~/github/wesl-cts/
+cd $root/
 fish run.fish 2>/dev/null | rg '^(running|Passed|Skipped|Failed)'
 echo "Done!"

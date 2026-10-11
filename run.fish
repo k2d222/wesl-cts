@@ -15,11 +15,14 @@ set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,all:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,any:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,arrayLength:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,asin:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,asinh:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,asinh:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,atan:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,atan2:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,atanh:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,atomics,*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,bitcast:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,ceil:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,clamp:*'
@@ -30,9 +33,12 @@ set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,countOneBi
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,countTrailingZeros:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,cross:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,degrees:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,determinant:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,distance:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,dot:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,dot4I8Packed:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,dot4U8Packed:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,dpdx:*'
@@ -41,20 +47,27 @@ set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,dot:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,dpdy:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,dpdyCoarse:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,dpdyFine:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,exp:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,exp2:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,extractBits:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,faceForward:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,firstLeadingBit:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,firstTrailingBit:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,floor:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,fma:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,fract:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,frexp:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,frexp:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,fwidth:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,fwidthCoarse:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,fwidthFine:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,insertBits:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,inversesqrt:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,ldexp:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,length:*'
@@ -63,34 +76,45 @@ set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,log2:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,max:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,min:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,mix:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,modf:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,normalize:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack2x16float:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack2x16snorm:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack2x16unorm:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4x8snorm:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4x8unorm:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4xI8:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4xI8Clamp:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4xU8:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4xU8Clamp:*'
+
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,normalize:*'
+
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack2x16float:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack2x16snorm:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack2x16unorm:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4x8snorm:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4x8unorm:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4xI8:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4xI8Clamp:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4xU8:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pack4xU8Clamp:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,pow:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,quadBroadcast:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,quadSwap:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,quantizeToF16:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,radians:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,reflect:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,refract:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,reverseBits:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,round:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,saturate:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,select:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,sign:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,sin:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,sinh:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,smoothstep:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,sqrt:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,step:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,storageBarrier:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,subgroupAdd:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,subgroupAll:*'
@@ -102,8 +126,10 @@ set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,step:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,subgroupMinMax:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,subgroupMul:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,subgroupShuffle:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,tan:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,tanh:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,textureDimensions:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,textureGather:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,textureGatherCompare:*'
@@ -119,15 +145,18 @@ set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,tanh:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,textureSampleLevel:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,textureStore:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,texture_utils:*'
+
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,transpose:*'
 set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,trunc:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack2x16float:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack2x16snorm:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack2x16unorm:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack4x8snorm:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack4x8unorm:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack4xI8:*'
-# set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack4xU8:*'
+
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack2x16float:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack2x16snorm:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack2x16unorm:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack4x8snorm:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack4x8unorm:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack4xI8:*'
+set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,unpack4xU8:*'
+
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,workgroupBarrier:*'
 # set -a passing_tests 'webgpu:shader,execution,expression,call,builtin,workgroupUniformLoad:*'
 
